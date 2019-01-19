@@ -1,0 +1,12 @@
+This folder has led code for STM32F407vg
+This a very basic programming to start learning about STM32F407vg board
+Please check the Technical Reference Manual simultaniously for more info.
+We are using STM32F407 Standard Peripheral library functions.
+Copy GPIO and RCC folders from STM32F4xx_DSP_StdPeriph_Lib_V1.8.0\Project\STM32F4xx_StdPeriph_Examples.
+Paste them in STM32F4xx_DSP_StdPeriph_Lib_V1.8.0\Project\STM32F4xx_StdPeriph_Templates
+Goto STM32F4xx_DSP_StdPeriph_Lib_V1.8.0\Project\STM32F4xx_StdPeriph_Templates\MDK-ARM
+Open a uVision file with name "Project"
+Replace main.c with led_source.c file.
+Compile your project and flash it into STM32F407vg board.
+
+Note : Code is not for selling
