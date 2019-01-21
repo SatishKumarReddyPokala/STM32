@@ -1,0 +1,11 @@
+This folder has pwm code for STM32F407vg
+Please check the Technical Reference Manual simultaniously for more info.
+We are using STM32F407 Standard Peripheral library.
+Copy GPIO, TIM and RCC folders from STM32F4xx_DSP_StdPeriph_Lib_V1.8.0\Project\STM32F4xx_StdPeriph_Examples.
+Paste them in STM32F4xx_DSP_StdPeriph_Lib_V1.8.0\Project\STM32F4xx_StdPeriph_Templates
+Goto STM32F4xx_DSP_StdPeriph_Lib_V1.8.0\Project\STM32F4xx_StdPeriph_Templates\MDK-ARM
+Open a uVision file with name "Project"
+Replace main.c with pwm_source.c file.
+Compile your project and flash it into STM32F407vg board.
+
+Note : This code is not for sale
