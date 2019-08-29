@@ -32,13 +32,13 @@ void timer__init_fun()
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
 	
   // Timer -2 has a clock of 84MHz
-  // so update event is 1ms
+  // update event is 2 Seconds
   // Update Event (Hz) = timer_clock / ((Prescaler + 1) * 
   // (Period + 1))
-  // Event (Hz) = 84MHz / ((8399 + 1) * (9 + 1)) = 40 Hz or 1 ms
+  // Event (Hz) = 84MHz / ((41999 + 1) * (3999 + 1)) = 2 seconds
   TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStruct;		//Timer structure pointer
-  TIM_TimeBaseInitStruct.TIM_Prescaler = 8399;
-  TIM_TimeBaseInitStruct.TIM_Period = 999;
+  TIM_TimeBaseInitStruct.TIM_Prescaler = 41999;
+  TIM_TimeBaseInitStruct.TIM_Period = 3999;
   TIM_TimeBaseInitStruct.TIM_ClockDivision = TIM_CKD_DIV1;
   TIM_TimeBaseInitStruct.TIM_CounterMode = TIM_CounterMode_Up;
 	
@@ -74,7 +74,7 @@ int main(void)
 	
   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
 
-  // GPIOD initialization green LED (GPIOD12)
+  // initialization green LED GPIOD12
   GPIO_InitTypeDef GPIO_InitStruct;
   GPIO_InitStruct.GPIO_Mode = GPIO_Mode_OUT;
   GPIO_InitStruct.GPIO_OType = GPIO_OType_PP;
@@ -87,13 +87,8 @@ int main(void)
 
   while (1)
   {
-/*		if(counter == 500)
-		{
-			GPIO_ToggleBits(GPIOD, 0x1000);
-			counter = 0;
-		}*/
-		//nothing
-	}
+  	
+  }
 }
 
 /**
