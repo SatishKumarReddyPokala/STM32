@@ -1,10 +1,23 @@
-This projects is for generating a 1ms timer for delay or any other purpose in STM32F407.
+This projects is for generating a 2 Seconds timer for delay or any other purpose in STM32F407.
 
 1)  Timer will have it's clock. Here we are using Timer-2 and clock is 84MHz.
-2)  A prescalar divides the clock and gives the desired desired clock as output (Prescalar is a 16 Bit register)
+2)  A prescalar divides the clock and gives the desired desired clock as output (Prescalar and period are 16 Bit register)
 
-    84MHz / (8399+1)  = 10KHz is the output clock for the prescalar value
+    84MHz / (41999+1)  = 2KHz is the output clock for the prescalar value
     
-    frequency = 1/time;   --->    time = 1/10KHz ---> time = 0.1ms
+    frequency = 1/time;   --->    time = 1/2KHz ---> time = 0.5ms
     
-3)  
+3)  Period is for updating the timer over flow.
+
+    Period value for 2 Seconds will be
+    
+    1           ---->        0.5 ms
+    4000        <----       2000 msec
+
+4)  Invoke interrupt for Toggle green LED.
+
+
+
+/*
+Copy the main file along with necessary packages such as timers, NVIC, GPIO, RCC etc.. into your project to build
+*/
