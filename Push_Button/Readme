@@ -1,2 +1,6 @@
-This project is for generating an external interrupt for push button present in stm32f407 and glow the LEDs
-Please replace the main file to your project with 
+/*  Please read this short note for how to use this code in your project
+This project is for using user push button in STM32F407VG
+User button is used by generating an external interrupt
+user button is connected to PA0 of stm32
+
+Copy the code into your main file to work */
