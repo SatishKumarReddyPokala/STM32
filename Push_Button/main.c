@@ -9,7 +9,7 @@
 /* Private variables ---------------------------------------------------------*/
 RCC_ClocksTypeDef RCC_Clocks;
 
-volatile int flag = 0;
+volatile int flag = 0;	//flag to toggle LEDs
 
 /* Private functions ---------------------------------------------------------*/
 	
@@ -19,9 +19,9 @@ void EXTI_CONFIG(void)
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 	
-	GPIO_InitTypeDef my_GPIO;
-	EXTI_InitTypeDef my_EXTI;
-	NVIC_InitTypeDef my_NVIC;
+	GPIO_InitTypeDef my_GPIO;	//Push button port
+	EXTI_InitTypeDef my_EXTI;	//External interrupts
+	NVIC_InitTypeDef my_NVIC;	//NVIC Interrupt handler
 	
 	my_GPIO.GPIO_Mode = GPIO_Mode_IN;
 	my_GPIO.GPIO_OType = GPIO_OType_PP;
@@ -47,6 +47,8 @@ void EXTI_CONFIG(void)
 	
 	NVIC_Init(&my_NVIC);
 }
+
+//This function is called when interrupt is triggered
 
 void EXTI0_IRQHandler()
 {
@@ -86,7 +88,7 @@ int main(void)
 	
 	my_gpiod.GPIO_Mode = GPIO_Mode_OUT;
 	my_gpiod.GPIO_OType = GPIO_OType_PP;
-	my_gpiod.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+	my_gpiod.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;	//LEDs
 	my_gpiod.GPIO_PuPd = GPIO_PuPd_NOPULL;
 	my_gpiod.GPIO_Speed = GPIO_Speed_50MHz;
 	
