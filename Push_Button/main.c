@@ -10,6 +10,7 @@
 RCC_ClocksTypeDef RCC_Clocks;
 
 volatile int flag = 0;	//flag to toggle LEDs
+//volatile unsigned long int button_counter = 0;	//Button press counter uncomment to use
 
 /* Private functions ---------------------------------------------------------*/
 	
@@ -64,6 +65,7 @@ void EXTI0_IRQHandler()
 		if(EXTI_GetITStatus(EXTI_Line0))
 		{
 			flag =1;
+//			button_counter = button_counter + 1;	//uncomment to find counting value.
 			EXTI_ClearITPendingBit(EXTI_Line0);
 		}
 	}
