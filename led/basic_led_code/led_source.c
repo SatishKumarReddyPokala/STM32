@@ -4,21 +4,22 @@
 //Memory mapping registers
 
 //clock configurations
-#define RCC_BASE_ADDR 	0x40023800
-#define	RCC_CR 					(RCC_BASE_ADDR+0x00)						//16-Bit HSE_ON
-#define	RCC_CFGR 				(RCC_BASE_ADDR+0x08)						//01 for HSE as system clock(Bits 0 and 1)
+#define RCC_BASE_ADDR 		0x40023800
+#define	RCC_CR 			(RCC_BASE_ADDR+0x00)						//16-Bit HSE_ON
+#define	RCC_CFGR 		(RCC_BASE_ADDR+0x08)						//01 for HSE as system clock(Bits 0 and 1)
 #define RCC_AHB1ENB 		(RCC_BASE_ADDR+0x30)						//GPIOD Enable 3-Bit
 
 //GPIOD configurations
 
-#define GPIOD_BASE_ADDR 			0x40020C00
-#define	GPIOD_MODE			(GPIOD_BASE_ADDR+0x00)					//01 for general purpose
-#define	GPIO_PUPDR			(GPIOD_BASE_ADDR+0x0C)					//01 pull-up
-#define	GPIOD_ODR				(GPIOD_BASE_ADDR+0x14)					//each bit for each pin first 16 pins are used
+#define GPIOD_BASE_ADDR 	0x40020C00
+#define	GPIOD_MODE		(GPIOD_BASE_ADDR+0x00)					//01 for general purpose
+#define	GPIO_PUPDR		(GPIOD_BASE_ADDR+0x0C)					//01 pull-up
+#define	GPIOD_ODR		(GPIOD_BASE_ADDR+0x14)					//each bit for each pin first 16 pins are used
 
 #define REG(address) (*(unsigned int *)address)					//function poiner to the address
 	
 
+//Delay function
 
 void delay(int val)
 {
@@ -71,4 +72,3 @@ int main()
 		delay(500);
 	}
 }
-
