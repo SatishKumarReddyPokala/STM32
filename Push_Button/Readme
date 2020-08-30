@@ -6,5 +6,6 @@ This project is for using user push button in STM32F407VG
 User button is used by generating an external interrupt
 user button is connected to PA0 of stm32
 This will toggle the on board leds.
+User can use the button as a counter.
 
 place main.c in working project/ directory to run the example.
