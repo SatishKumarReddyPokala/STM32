@@ -3,7 +3,7 @@ This a very basic programming to start learning about STM32F407vg board
 Please check the Technical Reference Manual simultaniously for more info.
 We are not using any library functions.
 Create a new project in Keil for STM32F407vg board.
-Replace main.c with led_source.c file.
+Add functions in led_source.c into main.c file.
 Compile your project and flash it into STM32F407vg board.
 
 Note : Code is not for selling
