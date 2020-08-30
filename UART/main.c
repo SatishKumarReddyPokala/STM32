@@ -89,6 +89,22 @@ char USART_GetChar()
     return USART_ReceiveData(USART3);
 }
 
+/*
+
+	Function for handling Input sequence end.
+	This will print the information received on terminal.
+
+*/
+void input_end(void)
+{
+	USART3_send_char('\n');
+	USART3_string(str);
+	USART3_send_char('\n');
+	memset(str,var,count);		//resetting memory with NULL characters
+	count = 0;			//Point start of the buffere for fresh data
+	USART3_string("success\n\r");
+}
+
 /**
   * @brief  Main program
   * @param  None
@@ -109,30 +125,14 @@ int main(void)
   while (1)
   {
 		ch = USART_GetChar();	//waiting for a character
-		USART3_send_char(ch);	//printing/sending that character to terminal. this line commented data won't display on screen but it will be stored in str array
+//		USART3_send_char(ch);	//For debug user can print input character
 		str[count] = ch;			//storing the character.
 		count++;							//storing data length
+	  
+	  //If transmission is completed.
 		if (ch== 0x0D)				//checking for the enter ascii then printing complete string in next line and going to next line for fresh entry
 		{
-			USART3_send_char('\n');
-			USART3_string(str);
-			USART3_send_char('\n');
-			memset(str,var,count);	//resetting memory with NULL characters
-			count = 0;
-			USART3_string("success\n\r");
+			input_end();	//Input End token received
 		}
-  }
-}
-
-/**
-  * @brief  Decrements the TimingDelay variable.
-  * @param  None
-  * @retval None
-  */
-void TimingDelay_Decrement(void)
-{
-  if (uwTimingDelay != 0x00)
-  { 
-    uwTimingDelay--;
   }
 }
