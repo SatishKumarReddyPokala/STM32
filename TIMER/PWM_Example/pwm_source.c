@@ -8,6 +8,8 @@ RCC_ClocksTypeDef RCC_Clocks;
 
 /* Private functions ---------------------------------------------------------*/
 
+//Delay function
+
 void delay(int milli)
 {
 	int i,j;
@@ -20,6 +22,8 @@ void delay(int milli)
 		}
 	}
 }
+
+//Timer initialization function
 
 void timer_fun(int Duty_cycle)
 {
@@ -103,31 +107,5 @@ int main(void)
 			period--;
 			delay(2000);
 		}
-  }
-}
-
-/**
-  * @brief  Inserts a delay time.
-  * @param  nTime: specifies the delay time length, in milliseconds.
-  * @retval None
-  */
-void Delay(__IO uint32_t nTime)
-{ 
-  uwTimingDelay = nTime;
-
-	
-  while(uwTimingDelay != 0);
-}
-
-/**
-  * @brief  Decrements the TimingDelay variable.
-  * @param  None
-  * @retval None
-  */
-void TimingDelay_Decrement(void)
-{
-  if (uwTimingDelay != 0x00)
-  { 
-    uwTimingDelay--;
-  }
+	}
 }
