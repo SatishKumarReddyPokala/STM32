@@ -19,21 +19,21 @@ int main(void)
   SysTick_Config(RCC_Clocks.HCLK_Frequency / 100);
   
   /* Enable the GPIOD peripheral */ 
-  GPIO_InitTypeDef my_gpio_struct;												//GPIO structure
+  GPIO_InitTypeDef my_gpio_struct;						//GPIO structure
   
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);							//Enabling clock for GPIOD
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);				//Enabling clock for GPIOD
   
   my_gpio_struct.GPIO_Pin = GPIO_Pin_14|GPIO_Pin_12|GPIO_Pin_13|GPIO_Pin_15;	//Enable four on board LED pins
-  my_gpio_struct.GPIO_Mode = GPIO_Mode_OUT;										//Mode of the pin IN/OUT/AF/AN
-  my_gpio_struct.GPIO_OType = GPIO_OType_PP;									//Push-Pull or Open Drain
-  my_gpio_struct.GPIO_PuPd = GPIO_PuPd_UP; 										//Pull-Up,Pull-Down,None
+  my_gpio_struct.GPIO_Mode = GPIO_Mode_OUT;					//Mode of the pin IN/OUT/AF/AN
+  my_gpio_struct.GPIO_OType = GPIO_OType_PP;					//Push-Pull or Open Drain
+  my_gpio_struct.GPIO_PuPd = GPIO_PuPd_UP; 					//Pull-Up,Pull-Down,None
   
-  GPIO_Init(GPIOD, &my_gpio_struct);											//Initialize the structure
+  GPIO_Init(GPIOD, &my_gpio_struct);						//Initialize the structure
     	 
   /* Infinite loop */
   while (1)
   {
-		GPIO_ToggleBits(GPIOD, 0xf000);											//Toggle PORT and PIN number/s value (for 16 pins)
+		GPIO_ToggleBits(GPIOD, 0xf000);					//Toggle PORT and PIN numbers value (for 12,13,14,15 pins)
 		Delay(100);
   }
 }
