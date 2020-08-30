@@ -1,6 +1,10 @@
-/*  Please read this short note for how to use this code in your project
+# Push-Button
+
+Please read this short note for how to use this code in your project
+
 This project is for using user push button in STM32F407VG
 User button is used by generating an external interrupt
 user button is connected to PA0 of stm32
+This will toggle the on board leds.
 
-Copy the code into your main file to work */
+place main.c in working project/ directory to run the example.
