@@ -50,9 +50,20 @@ void EXTI_CONFIG(void)
 
 void EXTI0_IRQHandler()
 {
-	if(EXTI_GetITStatus(EXTI_Line0)){
-		flag ^=1;
-		EXTI_ClearITPendingBit(EXTI_Line0);
+	if(flag)
+	{
+		if(EXTI_GetITStatus(EXTI_Line0))
+		{
+			EXTI_ClearITPendingBit(EXTI_Line0);
+		}
+	}
+	else
+	{
+		if(EXTI_GetITStatus(EXTI_Line0))
+		{
+			flag =1;
+			EXTI_ClearITPendingBit(EXTI_Line0);
+		}
 	}
 }
 
@@ -63,9 +74,9 @@ void EXTI0_IRQHandler()
   */
 int main(void)
 { 
-  /* SysTick end of count event each 10ms */
-  RCC_GetClocksFreq(&RCC_Clocks);
-  SysTick_Config(RCC_Clocks.HCLK_Frequency / 100);
+	/* SysTick end of count event each 10ms */
+	RCC_GetClocksFreq(&RCC_Clocks);
+	SysTick_Config(RCC_Clocks.HCLK_Frequency / 100);
 	
 	EXTI_CONFIG();
 	
@@ -82,11 +93,14 @@ int main(void)
 	GPIO_Init(GPIOD, &my_gpiod);
 	
   /* Infinite loop */
-  while (1){
-		while(flag){
-		GPIO_ToggleBits(GPIOD,0XF000);
-			flag = 0;
-		}
+  while (1)
+  {
+	  while(flag)
+	  {
+		  GPIO_ToggleBits(GPIOD,0XF000);
+		  delay(1000);
+		  flag = 0;
+	  }
   }
 }
 
