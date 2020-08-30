@@ -1,0 +1,10 @@
+# UART
+
+This is an example for reading and writing data into UART.
+Initialize UART.
+Connect the UART to PC through USB-TTL serial converter.
+Write the data to UART from PC.
+STM32 read the data till it receives '\n'.
+Once '\n' is encountered, STM32 will print the received data on serial console( send buffer to PC)
+
+Place these functions to test this application.
