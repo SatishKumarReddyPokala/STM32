@@ -1,1 +1,13 @@
-This file has the code for external led toggle through GPIO pin
+
+
+Requirements to test this code is
+
+STM32F407Vg
+LED
+Connecting Wires.
+100 Ohm resistor
+
+1. Connect anode(+) of LED to the PC2 pin through 100 Ohm resistor.
+2. Conect cathode(-) of LED to the ground.
+
+Flash the code into STM32.
